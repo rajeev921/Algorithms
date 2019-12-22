@@ -1,0 +1,302 @@
+#include <iostream>
+#include <string>
+#include <list>
+#include <vector>
+#include <set>
+#include <map>
+#include <algorithm>
+#include <cstdio>
+#include <cstdlib>
+#include <cassert>
+
+using namespace std;
+
+struct node {
+    int data;
+    struct node *next;
+};
+
+void find_middle_node(struct node *head)
+{
+    struct node *slow_ptr, *fast_ptr;
+    
+    slow_ptr = head;
+    fast_ptr = head;
+
+    if(head != NULL) {
+
+        while(fast_ptr != NULL && fast_ptr->next != NULL) {
+             fast_ptr = fast_ptr->next->next;
+             slow_ptr = slow_ptr->next;
+        }
+        cout << "\n Middle Node of Single Linked List \n" << slow_ptr->data;
+    }
+    
+    return;
+}
+
+struct node *add_newnode(int data) {
+     struct node *nd;
+
+     nd = (struct node *)malloc(sizeof(struct node));
+     assert(nd != NULL);
+     nd->data = data;
+     nd->next = NULL;
+
+     return nd;
+}
+
+void insert(struct node **head, int data)
+{
+     struct node *temp, *ptr;
+
+     if((*head) == NULL) {
+         temp = add_newnode(data);
+         (*head) = temp;
+          return;
+
+     }
+     else {
+         ptr = (*head);
+         while(ptr->next != NULL) {
+             ptr = ptr->next;
+         }
+         temp = add_newnode(data);
+         ptr->next = temp;
+     }
+     return;
+}
+
+void print_list(struct node *head) {
+    struct node *ptr = head;
+    
+    cout <<"print Single linked list \n";
+    
+    if(head != NULL) {
+        while(ptr = NULL) {
+            cout <<ptr->data <<"\n" ; 
+            ptr = ptr->next;
+        }
+    }
+    return;
+}
+int main()
+{
+    struct node *head = NULL;    
+    int i, data;
+
+    i = 1;
+
+    while(i <= 5) {
+        cin >> data;
+        cout << data << "\n";
+        insert(&head, data);
+        i++;
+    }
+    print_list(head);
+    
+    find_middle_node(head);
+    
+    print_list(head);
+
+    return 0;
+}
+
+===================================================================================
+
+// Tree Traversal
+
+// Binary Search Tree
+
+#include <iostream>
+#include <string>
+#include <list>
+#include <vector>
+#include <set>
+#include <map>
+#include <algorithm>
+#include <cstdio>
+#include <cstdlib>
+#include <cassert>
+
+using namespace std;
+
+typedef struct node {
+    int data;
+    struct node *left, *right;
+} tree;
+
+void create_tree(tree **rt, int data) {
+    tree *temp = NULL;
+    
+    if((*rt) == NULL) {
+        temp = (struct node *)malloc(sizeof(struct node *));
+        temp->data = data;
+        temp->left = NULL;
+        temp->right = NULL;
+        (*rt) = temp;
+        
+        return;    
+    }
+    else if( data < (*rt)->data) {
+        create_tree( &((*rt)->left), data);
+    }
+    else if( data > (*rt)->data) {
+        create_tree( &((*rt)->right), data);    
+    }
+    
+}
+
+void inorder(tree *rt) {
+    if(rt == NULL) {
+        return;
+    }
+    
+    inorder(rt->left);
+    cout << rt->data << "\t";
+    inorder(rt->right);
+    
+}
+
+void preorder(tree *rt) {
+    if(rt == NULL) {
+        return;
+    }
+    
+    cout << rt->data << "\t";
+    preorder(rt->left);
+    preorder(rt->right);
+}
+
+void postorder(tree *rt) {
+    if(rt == NULL) {
+        return;
+    }
+    
+    postorder(rt->left);
+    postorder(rt->right);
+    cout << rt->data << "\t";
+}
+
+int main() {
+    tree *root = NULL;
+    int data;
+    
+    for(int i =1; i <= 5; i++) {
+        cin >> data;
+        create_tree(&root, data);
+    }
+    
+    cout <<"\n Inorder traversal \n";
+    inorder(root);
+    cout <<"\n Preorder traversal \n";
+    preorder(root);
+    cout <<"\n POstorder traversal \n";
+    postorder(root);
+    
+    return 0;
+}
+
+==================================================================================
+// Check if Binary tree is BST or not
+
+bool isBST(struct node* root)
+{
+    static struct node *prev = NULL;
+     
+    // traverse the tree in inorder fashion and keep track of prev node
+    if (root)
+    {
+        if (!isBST(root->left))
+          return false;
+ 
+        // Allows only distinct valued nodes 
+        if (prev != NULL && root->data <= prev->data)
+          return false;
+ 
+        prev = root;
+ 
+        return isBST(root->right);
+    }
+ 
+    return true;
+}
+
+Time Complexity - O(n)
+
+----------------------------------
+
+int isBST(struct node* node) 
+{ 
+  return(isBSTUtil(node, INT_MIN, INT_MAX)); 
+} 
+ 
+/* Returns true if the given tree is a BST and its 
+   values are >= min and <= max. */
+int isBSTUtil(struct node* node, int min, int max) 
+{ 
+  /* an empty tree is BST */
+  if (node==NULL) 
+     return 1;
+       
+  /* false if this node violates the min/max constraint */ 
+  if (node->data < min || node->data > max) 
+     return 0; 
+ 
+  /* otherwise check the subtrees recursively, 
+   tightening the min or max constraint */
+  return
+    isBSTUtil(node->left, min, node->data-1) &&  // Allow only distinct values
+    isBSTUtil(node->right, node->data+1, max);  // Allow only distinct values
+} 
+
+--------------------------------------------------------------------
+
+// Find the inorder successor in BST
+
+int inorder_succ(struct node *rt, int data)
+{
+    if(rt == NULL)
+	return -1;
+
+    if(rt->right != NULL) {
+	return min_value(rt->right);
+    }
+    else {
+	struct node *succ = NULL;
+
+	while(rt != NULL) {
+	    if(data < rt->data) {
+	        succ = rt;
+	        rt = rt->left;
+            }
+	    else if(data > rt->data) {
+		rt = rt->right;
+	    }	
+	    else 
+		break;
+        }
+    }
+    return succ->data;
+}
+
+int min_value(struct node *rt) 
+{
+	if(rt == NULL)
+	    return;
+	else {
+	    while(rt->left != NULL) {
+		rt = rt->left;
+ 	    }
+	
+        }
+  	return rt->data;
+}
+ 
+Time Complexity - O(h)
+
+
+------------------------------------------------------------------------------------------------------	
+
+
+}

@@ -1,0 +1,2 @@
+Big_Endian, Little_Endian
+Bits

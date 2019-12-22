@@ -1,0 +1,115 @@
+// Find the lowest common ancestor in a binary search Tree
+
+#include <iostream>
+#include <cstdio>
+#include <cstdlib>
+#include <cassert>
+#include <cstring>
+#include <algorithm>
+#include <map>
+#include <queue>
+#include <string>
+
+using namespace std;
+
+struct node
+{
+    int data;
+    struct node* left, *right;
+};
+
+int check_given_nodes_are_valid(struct node *rt, int n1, int n2, int *flag) {
+    if(!rt)  // Use Inoder Traversal
+        return 0; 
+    else {
+        check_given_nodes_are_valid(rt->left, n1, n2, flag);
+        if(rt->data == n1 || rt->data == n2){
+            --(*flag);
+        }
+        check_given_nodes_are_valid(rt->right, n1, n2, flag);
+    }    
+}
+
+struct node *lca(struct node *rt, int a, int b)
+{
+    if(!rt) 
+        return NULL;
+    else if(rt->data == a || rt->data == b) {
+        return rt;
+    }
+    else {
+        struct node *l = lca(rt->left, a, b);
+        struct node *r = lca(rt->right, a, b);
+        
+        // if one of p or q is in leftsubtree and other is in right
+       // then root it the LCA
+        if(l && r) {
+            return rt;
+        }
+        else if(l) {
+            return l;
+        }
+        else {
+            return r;
+        }
+    }
+}
+
+/* Helper function that allocates a new node with the given data.*/
+struct node* newNode(int data)
+{
+    struct node* node = (struct node*)malloc(sizeof(struct node));
+    node->data  = data;
+    node->left  = node->right = NULL;
+    return(node);
+}
+
+
+/* Driver program to test lca() */
+int main()
+{
+    // Let us construct the BST shown in the above figure
+    struct node *root        = newNode(20);
+    root->left               = newNode(8);
+    root->right              = newNode(22);
+    root->left->left         = newNode(4);
+    root->left->right        = newNode(12);
+    root->left->right->left  = newNode(10);
+    root->left->right->right = newNode(14);
+ 
+    int n1 = 10, n2 = 14;
+    int flag = 2;
+    struct node *t;
+    
+    check_given_nodes_are_valid(root, n1, n2, &flag);
+    if(flag == 0) {
+        t = lca(root, n1, n2);
+        printf("LCA of %d and %d is %d \n", n1, n2, t->data);    
+    }
+    else {
+        printf("\nOne of node is not present in the BST\n");    
+    }
+    
+    n1 = 14, n2 = 8, flag = 2;;
+    check_given_nodes_are_valid(root, n1, n2, &flag);
+    if(flag == 0) {
+         t = lca(root, n1, n2);
+        printf("LCA of %d and %d is %d \n", n1, n2, t->data);    
+    }
+    else {
+        printf("\nOne of node is not present in the BST\n");    
+    }
+    
+    n1 = 10, n2 = 39, flag = 2;;
+    check_given_nodes_are_valid(root, n1, n2, &flag);
+    if(flag == 0) {
+         t = lca(root, n1, n2);
+        printf("LCA of %d and %d is %d \n", n1, n2, t->data);    
+    }
+    else {
+        printf("\nOne of node is not present in the BST\n");    
+    }
+ 
+    getchar();
+    return 0;
+}

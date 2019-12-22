@@ -1,0 +1,68 @@
+
+stack function name
+
+==============================================================================
+
+top()   -> gives front element           -> stack_name.top()
+push()  -> push element into stack       -> stack_name.push(no);
+pop     -> pop element from stack        -> stack_name..pop()
+size()  -> return size of stack          -> stack_name.size()
+empty() -> test whether stack is empty   -> stack_name.empty()   -> while (!mystack.empty())
+emplace -> construct and insert element  -> stack_name.emplace()
+
+=================================================================
+
+// stack::empty
+
+#include <iostream>       // std::cout
+#include <stack>          // std::stack
+
+int main ()
+{
+  
+  std::stack<int> mystack;
+  int sum (0);
+
+  for (int i=1;i<=10;i++) 
+     mystack.push(i);
+
+  std::cout << " size: " << myints.size() << '\n';
+
+  while (!mystack.empty())
+  {
+     sum += mystack.top();
+     mystack.pop();
+  }
+
+  std::cout << "0. size: " << myints.size() << '\n';
+  std::cout << "total: " << sum << '\n';
+
+  return 0;
+}
+
+=================================================================
+
+#include <iostream>       // std::cin, std::cout
+#include <stack>          // std::stack
+#include <string>         // std::string, std::getline(string)
+
+int main ()
+{
+  std::stack<std::string> mystack;
+
+  mystack.emplace ("First sentence");
+  mystack.emplace ("Second sentence");
+
+  std::cout << "mystack contains:\n";
+  while (!mystack.empty())
+  {
+    std::cout << mystack.top() << '\n';
+    mystack.pop();
+  }
+
+  return 0;
+}
+
+
+============================================================================================================================================================================================
+

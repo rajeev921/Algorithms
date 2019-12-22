@@ -1,0 +1,45 @@
+class class_name {
+
+private:
+
+public :
+
+protected :
+
+};
+
+// By default memebr are private in class 
+// But by default memebr are public in struct
+
+struct _name {
+public:
+
+
+};
+
+-----------------------------------------------------------
+
+struct shap {
+   int x;
+};
+
+class _base {
+int y;
+};
+
+class D : shap // same as class D: public D
+{
+
+};
+
+class E : _base // same class E: private _base
+
+======================================================================
+
+// Binary Heap
+
+// Fibonacci Heap
+
+// Max Heap
+
+// Min Heap

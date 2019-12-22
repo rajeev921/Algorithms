@@ -1,0 +1,103 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include <string>
+#include <cassert>
+
+using namespace std;
+/*
+
+
+int check_palindrome(string s) {
+    if( equal(s.begin(), s.begin() + s.size()/2, s.rbegin()) )
+        return 0;
+    else 
+    return 1;
+}
+
+
+*/
+
+int find_index_of_palind(string str, int len) {
+    
+    if(!check_palindrome(str)){
+        return -1;
+    }
+    else {
+        string temp;
+        int i, j;
+        i = 0; j = len -1;
+        int ret_2;
+        while(i < len/2) {
+            
+            temp = str;
+            //erase ith position char
+            temp.erase(temp.begin()+i);
+            ret_2 = check_palindrome(temp);
+            
+            if(ret_2 == 0){
+                return i;
+            }
+            else {
+                temp = str;
+                temp.erase(temp.begin()+j);
+                ret_2 = check_palindrome(temp);
+                if(ret_2 == 0){
+                   return j;
+                }
+                else {
+                    i++;
+                    j--;
+                }
+           }    
+       }
+    
+    }
+    return 1;
+}    
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    
+    int T;
+    
+    cin >> T;
+    assert(T >= 1);
+    assert(T <= 20);
+    
+    for(int i = 1; i <= T; ++i) {
+        string str;
+        
+        cin >> str;
+        int len = str.length();
+        assert(len >= 1);
+        assert(len <= 100005);
+        
+        int ret = find_index_of_palind(str, len);
+        cout << ret <<"\n";
+    
+    }
+    return 0;
+}
+
+====================================================
+
+// Reverse String in C++
+
+template <class A> 
+    void strever(A first, A last) {
+        while( (first != last ) && (first != --last)) {
+            iter_swap(first++, last);
+        }
+    }
+
+int main () {
+
+string st;
+  strever(st.begin(), st.end() )
+
+}
+
+====================================================

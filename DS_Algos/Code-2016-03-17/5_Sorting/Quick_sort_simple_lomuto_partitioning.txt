@@ -1,0 +1,79 @@
+I/P ---   1,4,2,3,5,8,9,6
+
+
+#include <stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#include<assert.h>
+#define SIZE 8
+
+//nut and bolt programme of array from  Geek and geeks
+void quick_sort(int *ar, int low, int hi)
+{
+    if(low < hi){
+        int q = partition(ar, low, hi);
+        quick_sort(ar, low, q-1);
+        quick_sort(ar, q+1, hi);
+        
+    }
+}
+
+// here in Lomuto Always choose last index(high) as a pivot
+
+int partition(int *ptr, int lo, int hi)  
+{
+    int save, i, j;
+
+    i = lo;
+    j = i-1;
+    save = ptr[hi];
+    while(i < hi)
+    {
+        if(ptr[i] <= save){
+            j++;
+            swap(ptr, i, j);
+        } 
+        i++;
+    }
+    swap(ptr, j+1, hi);
+    print(ptr, lo, hi);
+    printf("\n low = %d pivot = %d, hi = %d",lo, j+1, hi);
+    printf("\n");
+    return (j+1);
+}
+
+void print(int *ptr, int i, int j)
+{
+   while(i <= j){
+       printf("%d ",ptr[i]);
+       i++;
+   }
+ 
+}
+
+void swap(int *ptr, int i, int j)
+{   int temp;
+    
+    temp = *(ptr+i);
+    *(ptr+i) = *(ptr+j);
+    *(ptr+j) = temp;
+}
+
+int main()
+{
+    int bolt[SIZE], nut[SIZE];
+    int ar_i;
+ 
+    //Take input for nut
+    for(ar_i = 0; ar_i < SIZE; ar_i++){
+       scanf("%d", &nut[ar_i]);
+    }
+  
+   quick_sort(nut, 0, SIZE-1);    
+   
+      
+   printf("\n Matched nut and bolts are \n");
+   print(nut, 0, SIZE-1);
+   
+    return 0;
+}

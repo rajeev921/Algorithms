@@ -1,0 +1,91 @@
+Given a sorted array A with possible duplicate elements and you need to find the number of occurrences of a given input item (assuming the element is present in the array).
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <assert.h>
+#include <string.h>
+
+int first_Occurence(int ptr[], int len, int item)
+{
+    int count, mid, strt, end;
+    
+    strt = 0;
+    end = len -1;
+
+    count = 0;
+    while(strt < end) {
+        mid = (strt) + (end - strt)/2;
+        
+        if(ptr[mid] == item){
+            if(ptr[mid -1] < item){
+                break;   
+            }
+            else {
+                end = mid;
+            }
+        }
+        else if(ptr[mid] < item){
+            strt = mid + 1;
+        }
+        else {
+            end = mid -1;
+        }
+        count++;
+    } // End of while
+
+     printf("\n %d ", count);
+    return mid;
+
+} // End of Function
+
+int last_Occurence(int ptr[], int len, int item)
+{
+    int strt, end, mid;
+    strt = 0;
+    end = len-1;
+    
+    while(strt < end) {
+        mid = strt + (end - strt) / 2;
+        
+        if(ptr[mid] == item) {
+            if(ptr[mid + 1] > item){
+                break;
+            }   
+            else {
+                strt = mid;
+            }
+        }
+        else if(ptr[mid] < item) {
+            strt = mid + 1;
+        }
+        else {
+            end = mid - 1;
+        }
+    } // End of while
+    
+}
+
+int main(void) {
+	// your code goes here
+	
+	int arr[] = { 2, 3, 4, 5, 5, 5, 6, 8, 10, 11 };
+	int count, i, first_pos, last_pos;
+	
+	first_pos = first_Occurence(arr, 10, 5);
+	
+	printf("\n %d \n", first_pos);
+	
+	count = 1;
+	for( i = first_pos; i < 10 - 1; i++){
+	    if(arr[i] == arr[i + 1]){
+	        count++;
+	        continue;
+	    }
+	    else {
+	        break;
+	    }
+	}
+	printf("\n first_position = %d\n last_occurence = %d \n count = %d", first_pos, i, count);
+	
+	return 0;
+}

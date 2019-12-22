@@ -1,0 +1,58 @@
+#include <iostream>
+using namespace std;
+
+
+void spiral_matrix(int arr[][3],int row, int col) {
+    int i, j;
+    
+    /*for(i = 0; i < row; i++) {
+        for(j = 0; j < row; j++) {
+            cout << *(*(arr + i) + j) << " " ;
+        }
+        cout <<"\n";
+    }*/
+    
+    int L, R, T, B;
+    
+    L = T = 0;
+    R = B = col -1;
+    // Top
+    while(L <= R && T <= B) {
+        
+        for(int i = L; i <= R; i++) {
+            cout << arr[T][i]<<" ";
+        }
+        T++;
+    
+       // Right    
+        for(int i = T; i <= B; i++) {
+            cout << arr[i][R]<< " ";
+        }
+        R--;
+       
+       // Bottom
+           for(int i = R; i >= L; i--) {
+               cout << arr[B][i] << " ";
+           }
+           B--;
+       
+      // Left
+           for(int i =B ; i >=T; i--){
+               cout << arr[i][L] << " ";
+           }
+           L++;
+    }
+    
+}
+
+int main() {
+	// your code goes here
+	
+	int ar[3][3] = {  { 1, 2, 3},
+                    { 4, 5, 6},	
+                    { 7, 8, 9}
+	             };
+	             
+	  spiral_matrix(ar, 3, 3);           
+	return 0;
+}

@@ -1,0 +1,86 @@
+Statement - 
+
+Given a set of n nuts of different sizes and n bolts of different sizes. There is a one-one mapping between nuts and bolts. Match nuts and bolts efficiently.
+Constraint: Comparison of a nut to another nut or a bolt to another bolt is not allowed. It means nut can only be compared with bolt and bolt can only be compared with nut to see which one is bigger/smaller.
+
+Other way of asking this problem is, given a box with locks and keys where one lock can be opened by one key in the box. We need to match the pair.
+
+
+
+#include <stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#include<assert.h>
+#define SIZE 8
+
+//nut and bolt programme of array from  Geek and geeks
+void quick_sort(int *ar, int low, int hi)
+{
+    if(low < hi){
+        int q = partition(ar, low, hi);
+        quick_sort(ar, low, q-1);
+        quick_sort(ar, q+1, hi);
+        
+    }
+}
+
+// her Lomuto Always choose last index(high) as a pivot
+int partition(int *ptr, int p, int r)
+{
+    int save, i, j;
+
+    i = p;
+    j = i-1;
+    save = ptr[r];
+    while(i < r){
+        if(ptr[i] <= save){
+            j++;
+            swap(ptr, i, j);
+        } 
+        i++;
+    }
+    swap(ptr, j+1, r);
+    return (j+1);
+}
+
+void print(int *ptr, int i, int j)
+{
+   while(i <= j){
+       printf("%d ",ptr[i]);
+       i++;
+   }
+ 
+}
+
+void swap(int *ptr, int i, int j)
+{   int temp;
+    
+    temp = *(ptr+i);
+    *(ptr+i) = *(ptr+j);
+    *(ptr+j) = temp;
+}
+
+int main()
+{
+    int bolt[SIZE], nut[SIZE];
+    int ar_i;
+ 
+    //Take input for nut
+    for(ar_i = 0; ar_i < SIZE; ar_i++){
+       scanf("%d", &nut[ar_i]);
+    }
+   //Take input for bolt
+   for(ar_i = 0; ar_i < SIZE; ar_i++){
+      scanf("%d", &bolt[ar_i]);
+   } 
+   
+   quick_sort(nut, 0, SIZE-1);    
+   quick_sort(bolt, 0, SIZE-1);
+   
+   printf("\n Matched nut and bolts are \n");
+   print(nut, 0, SIZE-1);
+   printf("\n");
+   print(bolt, 0, SIZE-1);
+   
+    return 0;
+}

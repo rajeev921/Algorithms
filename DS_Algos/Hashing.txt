@@ -1,0 +1,123 @@
+#include <cmath>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <cassert>
+#include <vector>
+#include <string>
+#include <iostream>
+#include <algorithm>
+#define MAX_SIZE 1024
+
+
+using namespace std;
+
+enum { BUCKET_COUNT = 1024};
+
+struct node {
+    string key;
+    string value;
+    struct node *next;
+};
+
+struct table {
+    int size;
+    struct node **array;
+};
+
+unsigned int hash_func(string key) {
+    
+    int i;
+    unsigned int hash = 0U;
+    
+    for(int i = 0; key[i] != '\0'; ++i) {
+        hash = hash*6599 + (unsigned int)key[i];
+    }
+    
+    return hash%MAX_SIZE;
+}
+
+struct table* create_table(int size) {
+    
+    if(size < 1){
+        return NULL;
+    }
+    
+    struct table *t = (struct table *)malloc(sizeof(struct table));
+    
+    assert(t != NULL);
+    
+    t->array = (struct node **)malloc(sizeof(struct node) * size);
+    assert(t->array != NULL);
+    
+    for(int i = 0; i < size; ++i) {
+        t->array[i] = NULL;
+    }
+    
+    t->size = size;
+    return t;
+}
+
+struct node* addNode(string key, string value) {
+    struct node *temp;
+       
+    temp = (struct node *)malloc(sizeof(struct node));
+    assert(temp != NULL);
+      
+    temp->key = key;
+    temp->value = value;
+    temp->next = NULL;
+    
+    cout << temp->key << " " << temp->value << " ";
+    
+    return temp;
+}
+
+void insert(struct table *t, string key, string value)
+{
+    struct node *p = addNode(key, value);
+    
+  //  int h = hash_func(key);
+        
+ //   p->next = t->array[h];
+ //   t->array[h] = p;
+}
+
+string table_search(struct table *t, string key) {
+   
+    struct node *p; 
+    unsigned int h = hash_func(key);
+    
+    if(t->array[h] == NULL) {  // Empty node 
+        return '\0';
+    }
+    else {
+        for(p = t->array[h]; p != NULL; p = p->next) {
+            if(! p->key.compare(key) ) {
+                return p->value;
+                break;
+            }
+        }       
+    }
+    
+    return '\0';
+}
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */ 
+    
+    int N;
+    string key, value;
+    
+    cin >> N;
+    struct table *t = create_table(N);
+    
+    cin.ignore();
+    for(int i = 0; i < N; i++) {
+        getline(cin,key);
+        getline(cin,value);
+        insert(t, key, value);
+    } 
+    return 0;
+}
+
