@@ -16,7 +16,7 @@ public:
 
 //BFS - Breadth First Search
 
-class Solution {
+class Solution {n
 public:
     inline Node* createNode(int v)
     {
