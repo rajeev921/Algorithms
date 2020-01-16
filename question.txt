@@ -1,0 +1,40 @@
+hashTable                            |    Math                 | 
+-------------------------------------|-------------------------
+347 - top k frequent element(int)G   | 9   - Palindrome | 
+692 - top k frequent element(String)G | 
+		array                        |     Binary_Search        |
+-------------------------------------|-------------------------
+315  - Count of Smaller Numbers after|  33  - Rotated Array
+53   - Maximum subarray(sum)	self |	81  - Rotated Array Duplicate
+152  - Maximum Product Subarray		 |	153 - min Rotated Array
+121  - Best time to buy and sell 	 |	154 - min Rotated Array Duplicate
+169  - Majority elem			  	 |	34  - 1st and end Position in sorted
+									 |	35  - Search Insert Position
+									 |	74 -  Matrix search
+									 |	378  - kth smallest  matrix
+							Tree                            
+-----------------------------|--------------------------------------------
+94   - inorderTraversal      | 100  - sameTree
+98   - validateBST			 | 102  - levelorder
+124  - maxpathsum            | 103  - zigzaglevelOrder 
+104  - maxDepth	             | 111  - minDepth
+116  - populate next pntr    | 124  - max path sum
+199  - right side view       | 226  - invert tree
+230  - kth smallest element  | 572  - subtree Of Another Tree
+589  - Nary tree preorder    | 590  - N arytree postorder
+617  - merge 2 BST           | 938  - Range Sum BST
+951  - flip 
+DP							   |      Graph 
+-------------------------------|-------------------------------------------
+70   - climbstairs ways        | 133  - clone a graph
+303  - RangeSumQuery           | 200  - No of Islands
+392  - subsequence             | 863  - node distance k 
+746  - minCost climbingStairs  | 1161 - maxLevelSum
+1137 - Nth tribonacci Num      | 653  - 2sum input as BST
+Linked list								|     String
+----------------------------------------|-------------------------
+138  - Copy List with random pointer    |  76  - Minimum Window Substring 
+										|  14  - Longest Common Prefix
+Greedy
+1282 - group people given group size
+1007 - min Domino Rotation
