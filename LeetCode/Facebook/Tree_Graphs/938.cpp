@@ -53,3 +53,34 @@ public:
     }
 };
 
+class Solution {
+public:
+    int sum = 0;
+    int rangeSumBST(TreeNode* root, int L, int R) 
+    {
+        if(root->left)
+            rangeSumBST(root->left, L, R); 
+        if(root->val >= L && root->val <= R)
+            sum += root->val;
+        if(root->right)
+            rangeSuamBST(root->right, L, R);
+        return sum;
+    }
+};
+
+// another solution
+
+class Solution {
+public:
+    int sum = 0;
+    int rangeSumBST(TreeNode* root, int L, int R) 
+    {
+        if (root == null) 
+            return 0; // base case.
+        if (root->val < L) 
+            return rangeSumBST(root->right, L, R); // left branch excluded.
+        if (root->val > R) 
+            return rangeSumBST(root->left, L, R); // right branch excluded.
+        return root->val + rangeSumBST(root->right, L, R) + rangeSumBST(root->left, L, R); // count in both children.
+    }
+};

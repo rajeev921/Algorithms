@@ -1,3 +1,9 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 class Solution {
 public:
     bool isMonotonic(vector<int>& A) {
@@ -34,3 +40,13 @@ public:
         return false;
     }
 };
+
+int main()
+{
+	Solution obj;
+
+	vector<int> A{2, 5, 8, 9, 55, 33};
+	cout << obj.isMonotonic(A);
+
+	return 0;
+}

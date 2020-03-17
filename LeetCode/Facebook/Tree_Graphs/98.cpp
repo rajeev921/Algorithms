@@ -44,3 +44,35 @@ public:
 		return true;
     }
 };
+
+// Another Solution
+
+class Solution {
+    bool isBst{false};
+public:
+    bool isValidBST(TreeNode* root) {
+    return dfs_valid(root, LONG_MIN, LONG_MAX);
+}
+bool dfs_valid(TreeNode *root, long low, long high) {
+    if (!root) return true;
+    return low < root->val && root->val < high && dfs_valid(root->left, low, root->val)
+            && dfs_valid(root->right, root->val, high);
+}
+};
+
+//In-order, recursive, O(n), refered from here.
+class Solution {
+public:
+    bool isValidBST(TreeNode* root) {
+        TreeNode* pre = NULL;
+        return isValid(root, pre);
+    }
+    
+    bool isValid(TreeNode* root, TreeNode* &pre){
+        if(!root) return true;
+        if(!isValid(root->left, pre)) return false;
+        if(pre && root->val <= pre->val) return false;
+        pre = root;
+        return isValid(root->right, pre);
+    }
+};
