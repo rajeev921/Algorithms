@@ -1,0 +1,89 @@
+
+Kaggle Link - 
+	https://www.kaggle.com/c/3d-object-detection-for-autonomous-vehicles/notebooks
+
+	https://www.kaggle.com/c/3d-object-detection-for-autonomous-vehicles/discussion/123004
+
+	https://www.kaggle.com/c/3d-object-detection-for-autonomous-vehicles/discussion/114195
+
+	https://www.kaggle.com/c/3d-object-detection-for-autonomous-vehicles/discussion/115376
+
+	https://www.kaggle.com/c/3d-object-detection-for-autonomous-vehicles/discussion/117560
+
+	https://www.kaggle.com/c/3d-object-detection-for-autonomous-vehicles/discussion/119220
+
+	https://www.kaggle.com/c/3d-object-detection-for-autonomous-vehicles/discussion/119051
+
+	https://www.kaggle.com/gzuidhof/reference-model
+
+	https://www.kaggle.com/c/3d-object-detection-for-autonomous-vehicles/discussion/122820
+
+Camera Lidar Self Calibration - 
+	http://eprints.sztaki.hu/9814/1/Nagy_1_30748722_ny.pdf
+
+Training a Fast Object Detector for LiDAR Range Images Using Labeled Data from Sensors with Higher Resolution
+	https://arxiv.org/abs/1905.03066
+
+Combining Camera and Lidar
+	https://classroom.udacity.com/nanodegrees/nd313-beta/parts/b899053b-aa5d-462e-9317-7fa5d973439f/modules/0a71c48d-96ab-4d3a-be96-3ea1e64cf773/lessons/fb74bfb2-bfe1-4d86-a997-320ab71c0dbd/concepts/287ac53f-9169-411d-b125-41e500aa4043
+
+=====================================================================================================================================
+
+Topological Sort is Easy -- The General Template
+*
+What we need ?
+1. HashMap<Node, Indegree> inDegree: A in-degree map, which record each nodes in-degree.
+2. HashMap<Node, List<Node>children> topoMap: A topo-map which record the Node's children
+
+What we do ?
+1. Init: Init the two HashMaps.
+2. Build Map: Put the child into parent's list ; Increase child's in-degree by 1.
+3. Find Node with 0 in-degree: Iterate the inDegree map, find the Node has 0 inDegree. (If none, there must be a circle)
+4. Decrease the children's inDegree by 1: Decrease step3's children's inDegree by 1.
+5. Remove this Node: Remove step3's Node from inDegree. Break current iteration.
+6. Do 3-5 until inDegree is Empty: Use a while loop	
+
+=====================================================================================================================================
+
+https://towardsdatascience.com/custom-loss-function-in-tensorflow-2-0-d8fa35405e4e
+
+https://towardsdatascience.com/exploring-learning-rates-to-improve-model-performance-in-keras-e37f5e63f16c
+
+https://medium.com/tensorflow/ranking-tweets-with-tensorflow-932d449b7c4
+
+Focal Loss (Object Detection) - https://towardsdatascience.com/review-retinanet-focal-loss-object-detection-38fba6afabe4
+
+10 CNN Architecture - https://towardsdatascience.com/illustrated-10-cnn-architectures-95d78ace614d
+
+=====================================================================================================================================
+
+Machine Learning Design is a product and systems design problem. If you’re interviewing for a recommender systems team you may be asked to design the Netflix or Youtube homepage and be expected to talk about the trade-offs between different model families, the features you’d explore, how you’d validate them, and A/B testing. You would be expected to touch on your training pipelines, how you’ll serve inferences, and your feature stores. Finally, depending on the candidates background they’ll either get a traditional systems design interview or a deep ML Theory session focused on their area of expertise. If you claim to have deep knowledge of vector machines you’ll get fundamental questions on the topic here. It’s been seen at some companies to have candidates derive simple logistic regression on the board from first principles.
+
+
+===========================================================================================================================================================================================================
+
+1. Validate BST.
+2. Sort Alien Dictionary
+3. Sum of consecutive element in an array
+4. No of connected components in a graph.
+5. https://leetcode.com/problems/simplify-path/
+6. n-ary Tree with each node having a boolean flag. Traverse all the nodes with only boolean flag = True. Return the total distance traveled from root to all those nodes.
+7.  Behavior interview/ coding). Is there a way to reach (0,0) from a mXn matrix to (m-1,n-1) position and give the path.
+
+8. Similar strings ("face", "eacf") returns true if only 2 positions in the strings are swapped. Here 'f' and 'e' are swapped in the example.
+
+
+===========================================================================================================================================================================================================
+
+Design - 
+
+1. Design a Content publishing site with privacy restrictions.
+2. Design a website for Programming Contests.
+3. 
+
+
+
+
+
+=====================================================================================================================================
+
