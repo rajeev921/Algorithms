@@ -30,16 +30,16 @@ public:
 		stack<TreeNode*> st;
 		TreeNode* prev=nullptr;
 		while(root!= nullptr || !st.empty()) {
-			while(root != nullptr) {
-                st.push(root);
-                root = root->left;
-            }
-            root = st.top();
-            st.pop();
-            if(prev != nullptr && root->val <= prev->val)
-                return false;
-            prev = root;
-            root = root->right; 
+		    while(root != nullptr) {
+		        st.push(root);
+		        root = root->left;
+		    }
+		    root = st.top();
+		    st.pop();
+		    if(prev != nullptr && root->val <= prev->val)
+		        return false;
+		    prev = root;
+		    root = root->right; 
 		}
 		return true;
     }

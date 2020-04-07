@@ -15,6 +15,39 @@ Output: 2
 Explanation: T is "aa" which its length is 2.
 */
 
+
+class Solution {
+public:
+    int lengthOfLongestSubstringKDistinct(string s, int k) {
+        int len = s.length();
+        if(k == 0)
+            return 0;
+        if(len < 2)
+            return len;
+        
+        unordered_map<char, int> lookup;
+        int left{}, right{}, counter{}, maxLen{INT_MIN};
+        
+        while(right < len){
+            char ch1 = s.at(right);
+            ++lookup[ch1];
+            if(lookup[ch1]==1)
+                ++counter;
+            ++right;
+            while(counter > k){
+                char ch2 = s.at(left);
+                --lookup[ch2];
+                if(lookup[ch2]==0)
+                    --counter;
+                ++left;
+            }
+            maxLen = max(maxLen, right-left);
+        }
+        
+        return maxLen;
+    }
+};
+
 class Solution {
 public:
     int lengthOfLongestSubstringKDistinct(string s, int k) {
@@ -88,3 +121,4 @@ public:
         return min_len;
     }
 };
+

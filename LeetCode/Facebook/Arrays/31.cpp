@@ -41,7 +41,7 @@ public:
 1,1,5 → 1,5,1
 */
 
-lass Solution {
+class Solution {
 public:
     void nextPermutation(vector<int>& nums) {
         int i = nums.size()-2;

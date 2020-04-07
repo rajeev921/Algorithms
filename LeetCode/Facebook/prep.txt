@@ -1,0 +1,254 @@
+For E5, 100-110k Pound base . 250-400k USD stocks, 15% bonus.
+
+===================================================================================================================================================================================================
+
+I would like to share my experience interviewing with Facebook.
+The TC information is at the end.
+
+Profile:
+Bachelors in computer science 
+YOE : 7
+Others: 1 internship at Amazon
+Leetcode : 160 (E : 67, M : 76, H : 17)
+
+Facebook | E5 | London | April 2020 | (Accepted)
+
+==================================================================================================
+Facebook
+=================================================================================================
+Telephonic -
+1. sum of every level - https://leetcode.com/problems/find-largest-value-in-each-tree-row/
+2. https://leetcode.com/problems/longest-valid-parentheses/
+
+Onsite / VC
+Round - 1 -> Behavioural Round
+Round 2 - 
+	Given an int array nums and an int target. Find two integers in nums such that the sum is closest to target
+	https://leetcode.com/problems/course-schedule/
+
+ROund 3 
+	https://leetcode.com/problems/populating-next-right-pointers-in-each-node/
+	first solve with recursion. Then told me to solve iteratively with space Complexity O(1).
+
+	Given a vector of string. Generate all the substring having palindrom.
+
+Round 4 system Design
+
+Round 5 ML Design 
+
+===================================================================================================================================================================================================
+
+
+Kaggle Link - 
+	https://www.kaggle.com/c/3d-object-detection-for-autonomous-vehicles/notebooks
+
+	https://www.kaggle.com/c/3d-object-detection-for-autonomous-vehicles/discussion/123004
+
+	https://www.kaggle.com/c/3d-object-detection-for-autonomous-vehicles/discussion/114195
+
+	https://www.kaggle.com/c/3d-object-detection-for-autonomous-vehicles/discussion/115376
+
+	https://www.kaggle.com/c/3d-object-detection-for-autonomous-vehicles/discussion/117560
+
+	https://www.kaggle.com/c/3d-object-detection-for-autonomous-vehicles/discussion/119220
+
+	https://www.kaggle.com/c/3d-object-detection-for-autonomous-vehicles/discussion/119051
+
+	https://www.kaggle.com/gzuidhof/reference-model
+
+	https://www.kaggle.com/c/3d-object-detection-for-autonomous-vehicles/discussion/122820
+
+Camera Lidar Self Calibration - 
+	http://eprints.sztaki.hu/9814/1/Nagy_1_30748722_ny.pdf
+
+Training a Fast Object Detector for LiDAR Range Images Using Labeled Data from Sensors with Higher Resolution
+	https://arxiv.org/abs/1905.03066
+
+Combining Camera and Lidar
+	https://classroom.udacity.com/nanodegrees/nd313-beta/parts/b899053b-aa5d-462e-9317-7fa5d973439f/modules/0a71c48d-96ab-4d3a-be96-3ea1e64cf773/lessons/fb74bfb2-bfe1-4d86-a997-320ab71c0dbd/concepts/287ac53f-9169-411d-b125-41e500aa4043
+
+=====================================================================================================================================
+
+Topological Sort is Easy -- The General Template
+*
+What we need ?
+1. HashMap<Node, Indegree> inDegree: A in-degree map, which record each nodes in-degree.
+2. HashMap<Node, List<Node>children> topoMap: A topo-map which record the Node's children
+
+What we do ?
+1. Init: Init the two HashMaps.
+2. Build Map: Put the child into parent's list ; Increase child's in-degree by 1.
+3. Find Node with 0 in-degree: Iterate the inDegree map, find the Node has 0 inDegree. (If none, there must be a circle)
+4. Decrease the children's inDegree by 1: Decrease step3's children's inDegree by 1.
+5. Remove this Node: Remove step3's Node from inDegree. Break current iteration.
+6. Do 3-5 until inDegree is Empty: Use a while loop	
+
+=====================================================================================================================================
+
+https://towardsdatascience.com/custom-loss-function-in-tensorflow-2-0-d8fa35405e4e
+
+https://towardsdatascience.com/exploring-learning-rates-to-improve-model-performance-in-keras-e37f5e63f16c
+
+https://medium.com/tensorflow/ranking-tweets-with-tensorflow-932d449b7c4
+
+Focal Loss (Object Detection) - https://towardsdatascience.com/review-retinanet-focal-loss-object-detection-38fba6afabe4
+
+10 CNN Architecture - https://towardsdatascience.com/illustrated-10-cnn-architectures-95d78ace614d
+
+=====================================================================================================================================
+
+Machine Learning Design is a product and systems design problem. If you’re interviewing for a recommender systems team you may be asked to design the Netflix or Youtube homepage and be expected to talk about the trade-offs between different model families, the features you’d explore, how you’d validate them, and A/B testing. You would be expected to touch on your training pipelines, how you’ll serve inferences, and your feature stores. Finally, depending on the candidates background they’ll either get a traditional systems design interview or a deep ML Theory session focused on their area of expertise. If you claim to have deep knowledge of vector machines you’ll get fundamental questions on the topic here. It’s been seen at some companies to have candidates derive simple logistic regression on the board from first principles.
+
+
+===========================================================================================================================================================================================================
+
+1. Validate BST.
+2. Sort Alien Dictionary
+3. Sum of consecutive element in an array
+4. No of connected components in a graph.
+5. https://leetcode.com/problems/simplify-path/
+6. n-ary Tree with each node having a boolean flag. Traverse all the nodes with only boolean flag = True. Return the total distance traveled from root to all those nodes.
+7.  Behavior interview/ coding). Is there a way to reach (0,0) from a mXn matrix to (m-1,n-1) position and give the path.
+
+8. Similar strings ("face", "eacf") returns true if only 2 positions in the strings are swapped. Here 'f' and 'e' are swapped in the example.
+
+
+===========================================================================================================================================================================================================
+
+Design - 
+
+1. Design a Content publishing site with privacy restrictions.
+2. Design a website for Programming Contests.
+3. 
+
+=====================================================================================================================================
+
+
+https://thegradient.pub/the-promise-of-hierarchical-reinforcement-learning/
+
+Weakness in RL
+	1. Sample efficiency: data generation is often a bottleneck and current RL methods are data inefficient. With HRL, sub-tasks and abstract actions can be used in different tasks on the same domain (transfer learning)
+	
+	2. Scaling up: the application of classic RL to the problems with large action and/or state space is infeasible (curse of dimensionality). HRL aims to decompose large problems into smaller ones (efficient learning)
+
+	3. Generalization: trained agents can solve complex tasks, but if we want them to transfer their experience to new (even similar) environments, most state of the art RL algorithms will fail (brittleness due to overspecialization)	
+
+	4. Abstraction: state and temporal abstractions allow to simplify the problem since resulting sub-tasks can effectively be solved by RL approaches (better knowledge representation)
+
+================================================================================================
+Quantization-aware training to leverage high-performance INT8 quantization on mobile while minimizing potential quality degradation from the quantization process.
+
+CNN architecture optimality depends on -
+	input resolution and target devices
+	FLOP count does not always reflect actual latency.
+
+
+
+Multi GPU Training - 
+	NCCL Library for communication between GPUs.
+
+	Several general purpose model parallel frameworks such as GPipe and Mesh-TensorFlow have been proposed recently. 
+
+	gPipe divides groups of layers across different processors while Mesh-TensorFlow employs intra-layer model parallelism.
+
+
+	1. Convert dataset into TFRecord. Then TF eager mode to turn the TFRecords into numpy matrices before loading into the gpu tensors. This greatly reduces the overhead of dataprocessing and speeds up training. 
+
+	2. the scripts will launch training with 4-way distributed data parallelism and 2-way model parallelism.
+
+	3. We note that we have experimented with multiple distributed data parallel implementations: a simple one of our own which performs gradient all-reduce at the end of back propagation step, and torch's distributed data parallel wrapper which overlaps gradient reduction with back propagation computation. To switch between these two options toggle the USE_TORCH_DDP flag (the default is set to False and uses our DDP implementation) 
+
+	4. split proportionally into a 95%, 5% train/val split
+================================================================================================
+	
+Memcached is a high performance multithreaded event-based key/value cache store intended to be used in a distributed system.
+
+http://www.openculture.com/2017/02/the-map-of-mathematics.html
+
+================================================
+ML Design 
+----------------=============================----------------------
+
+topic model,
+collaborative filtering,
+hidden Markov model,
+
+how google search ranking works.
+Design newsfeed ranking
+Design local search ranking
+Design evaluation framework for ads ranking
+
+--------------------------------------------------------
+Expectations
+
+	What we’re looking for:
+	• Can you visualize the entire problem and solution space?
+	• Are you good at feature engineering?
+	• Can you detect flaws in machine learning systems and suggest improvements?
+	• Can you design consistent evaluation and deployment techniques?
+	• Do you understand architecture requirements (storage, perf etc.) of your system?
+	• Can you model product requirements into your ML system?
+
+--------------------------------------------------------
+A good design will touch on the following different components:
+	
+	• Problem formulation
+		o Optimization function
+		o Supervision signal
+	• Feature engineering
+		o Data source
+		o Representation
+	• Model architecture
+	• Evaluation metrics
+	• Deployment (A/B testing)
+
+-----------------------------------------------------------------------------
+What will you do after you train the model and the model
+does not perform well? 
+How do you go about debugging an ML model? How do you evaluate
+and continuously deploy an ML model?
+
+-----------------------------------------------------------------------------
+Machine Learning Interview -
+
+https://www.youtube.com/watch?v=t6gOpFLt-Ks&list=PLHJqZvGHZQF2UjB1ca28r8KK57-edyub6
+
+ML Design Link -
+
+https://www.linkedin.com/pulse/machine-learning-system-design-rico-meinl/
+https://end-to-end-machine-learning.teachable.com/p/000-foundational-skills
+-----------------------------------------------------------------------------
+
+===========================================================================================================================================================
+Facebook - 1 year frequency from high to low - 
+
+301, 953, 273, 973, 67, 560, 238, 297, 680, 253, 282, 621, 426, 158, 269, 124, 125, 1249, 438, 523, 76, 211, 173, 278, 986, 23, 785, 199, 340, 98, 721,
+31, 304, 543, 349, 56, 636, 157, 215, 65, 133, 415, 34, 896, 314, 71, 689, 824, 139, 317, 958, 161, 88, 987, 825, 311, 708, 15, 143, 1004, 247, 270,
+146, 350, 1027, 33, 1, 246, 42, 863, 162, 10, 29, 416, 114, 43, 767, 489, 32, 50, 528, 536, 348, 200, 567, 477, 480, 227, 286, 20, 935, 236, 885, 632,
+79, 921, 319, 138, 398, 380, 463, 78, 91, 394, 277, 670, 140, 126, 647, 494, 347, 691, 22, 1197, 498, 336, 405, 257, 622, 614, 468, 339, 224, 564, 1216, 
+128, 1094, 341, 13, 109, 75, 51, 3, 419, 329, 938, 449, 529, 283, 249, 1060, 8, 977, 381, 210, 358, 37, 865, 678, 111, 5, 239, 53, 540, 963, 295, 1008, 
+766, 105, 207, 334, 325, 490, 163, 121, 1123, 428, 46, 692, 568, 1146, 2, 674, 742, 408, 791, 794, 166, 637, 969, 127, 17, 151, 843, 252, 296, 285, 378,
+848, 223, 452, 1053, 308, 81, 772, 298, 549, 214, 393, 153, 788, 432, 102, 1213, 616, 4, 266, 25, 387, 353, 21, 939, 1032, 24, 414, 230, 597, 593, 703, 
+49, 515, 496, 44, 312, 129, 332, 208, 240, 54, 505, 57, 228, 642, 39, 218, 724, 305, 112, 212, 92, 872, 116, 209, 981, 241, 516, 26, 694, 875, 242, 324,
+74, 443, 73, 714, 235, 303, 41, 1091, 752, 430, 388, 36, 364, 417, 189, 844, 399, 188, 103, 160, 113, 94, 93, 503, 450, 48, 229, 202, 137, 344, 145, 11,
+122, 104, 442, 9, 110, 110, 123, 28, 300, 628, 7, 206, 1021, 445, 152, 181, 1108, 701, 117, 136, 148, 221, 62, 437, 45, 222, 328, 40, 739, 852, 63, 47,
+66, 19, 38, 509, 12, 70, 118, 572, 771, 69, 100, 14
+
+===========================================================================================================================================================
+
+
+===========================================================================================================================================================
+
+Google - 1 year frequency from high to low - 
+
+1007, 843, 1153, 410, 809, 1088, 1057, 1, 1170, 465, 222, 1055, 727, 659, 363, 1110, 801, 315, 482, 359, 299, 1231, 430, 939, 552, 642, 889, 1066, 753,
+837, 1145, 271, 1087, 1096, 679, 743, 844, 951, 1011, 835, 1032, 846, 489, 1168, 1219, 981, 726, 1197, 1146, 752, 68, 221, 947, 777, 729, 317, 562, 353, 
+833, 722, 1048, 298, 329, 528, 163, 200, 23, 459, 815, 1157, 862, 1074, 248, 4, 158, 551, 304, 1203, 57, 1209, 855, 43, 708, 362, 85, 208, 932, 774, 818, 
+42, 91, 731, 53, 340, 444, 817, 205, 737, 776, 1188, 76, 56, 900, 560, 320, 604, 360, 895, 986, 385, 723, 239, 950, 288, 295, 253, 772, 720, 325, 394, 210, 
+871, 31, 853, 432, 925, 632, 34, 767, 692, 124, 115, 128, 146, 336, 821, 212, 1165, 209, 2, 17, 328, 593, 173, 769, 1031, 392, 949, 719, 44, 130, 524, 369, 
+852, 773, 33, 681, 140, 311, 399, 1105, 493, 424, 149, 1000, 218, 1056, 41, 72, 198, 1155, 904, 792, 3, 480, 139, 567, 269, 337, 247, 1292, 168, 706, 490, 
+890, 332, 10, 686, 714, 529, 1091, 1060, 662, 273, 202, 150, 1027, 15, 307, 16, 310, 215, 246, 416, 849, 460, 54, 286, 498, 228, 39, 97, 279, 30, 113,
+380, 236, 931, 224, 99, 346, 166, 1051, 785, 766, 334, 20, 523, 297, 28, 443, 49, 206, 66, 1099, 1021, 374, 121, 94, 67, 64, 5, 543, 965, 207, 152, 1122, 
+213, 162, 77, 136, 55, 84, 724, 1143, 326, 665, 226, 46, 322, 122, 18, 40, 739, 22, 63, 32, 88, 238, 145, 133, 38, 709, 287, 98, 300, 7, 127, 118, 104, 
+572, 75, 50, 973, 9, 79, 78, 167, 347, 35, 21, 169, 125, 242, 141, 283, 1108, 14, 344, 1281, 70
+====================================================================================================================================================================

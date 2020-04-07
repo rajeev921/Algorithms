@@ -20,7 +20,7 @@ public:
 class Solution {
 public:
     vector<int> preorder(Node* root) {
-        if(root == NULL)
+        if(root == nullptr)
         {
             return {};
         }

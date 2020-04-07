@@ -32,3 +32,30 @@ public:
         return root;
     }
 };
+
+void connect(TreeLinkNode *root) {
+        if (!root) return; //Edge Case
+        
+        queue<TreeLinkNode*> q;
+        
+        //Trick: Push NULL to maintain depth information
+        q.push(root);
+        q.push(NULL);
+        
+        while(!q.empty())
+        {
+            TreeLinkNode* curr = q.front(); q.pop();
+
+            if (curr==NULL) 
+            {
+                if (q.size() > 0) q.push(NULL);
+            }
+            else
+            {
+                curr->next = q.front();
+                if(curr->left!=NULL) q.push(curr->left);
+                if(curr->right!=NULL) q.push(curr->right);
+            }
+        }
+
+}

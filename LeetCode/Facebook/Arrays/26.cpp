@@ -17,38 +17,16 @@ public:
             return sz;
         }
         
-        int i{}, j{1};
-        while(i < sz && j < sz) {
-            if(nums[i]!=nums[j]){
-                ++i;
-                nums[i]=nums[j];
-            }
-            ++j;
-        }
-        nums.resize(i+1);
-        
-        return nums.size();
-    }
-};
-
-class Solution {
-public:
-    int removeDuplicates(vector<int>& nums) {
-        if(nums.size() < 2)
-            return nums.size();
-        
-        int i = 0;
-        for(int j = 0; j < nums.size(); ++j)
-        {
-            if(nums[i] != nums[j])
-            {
-                ++i;
-                nums[i] = nums[j];
+        int x{}, i{};
+        for(; i < sz; ++i) {
+            if(nums[i] != nums[x]){
+                nums[++x]=nums[i];
             }
         }
+        nums.resize(x+1);
         //nums.erase(nums.begin()+i+1, nums.end());
-        
-        return i+1;
+
+        return x+1;
     }
 };
 

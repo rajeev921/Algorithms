@@ -106,8 +106,10 @@ public:
                     minLen = right - left;
                     minStart = left;
                 }
-                if(++hist[s[left++]] > 0)
+                ++hist[s[left]];
+                if(hist[s[left]] > 0)
                     ++remaining;
+                left++;
             }
         }
         
