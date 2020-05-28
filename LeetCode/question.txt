@@ -6,13 +6,14 @@ hashTable                            |    Math                 |
 -------------------------------------|-------------------------
 315  - Count of Smaller Numbers after|  33  - Rotated Array
 53   - Maximum subarray(sum)	self |	81  - Rotated Array Duplicate
-152  - Maximum Product Subarray		 |	153 - min Rotated Array
-121  - Best time to buy and sell 	 |	154 - min Rotated Array Duplicate
-169  - Majority elem			  	 |	34  - 1st and end Position in sorted
-									 |	35  - Search Insert Position
-									 |	74 -  Matrix search
-									 |	378  - kth smallest  matrix
-							Tree                            
+152  - Maximum Product Subarray      |
+918  - Maximum sum Circular subarray |	153 - min Rotated Array
+121  - Best time to buy and sell     |	154 - min Rotated Array Duplicate
+169  - Majority elem		     |	34  - 1st and end Position in sorted
+				     |	35  - Search Insert Position
+				     |	74 -  Matrix search
+				     |	378  - kth smallest  matrix
+			Tree                            
 -----------------------------|--------------------------------------------
 94   - inorderTraversal      | 100  - sameTree
 98   - validateBST			 | 102  - levelorder
@@ -24,13 +25,14 @@ hashTable                            |    Math                 |
 589  - Nary tree preorder    | 590  - N arytree postorder
 617  - merge 2 BST           | 938  - Range Sum BST
 951  - flip 
-DP							   |      Graph 
+DP			       |  Graph 
 -------------------------------|-------------------------------------------
 70   - climbstairs ways        | 133  - clone a graph
 303  - RangeSumQuery           | 200  - No of Islands
 392  - subsequence             | 863  - node distance k 
 746  - minCost climbingStairs  | 1161 - maxLevelSum
 1137 - Nth tribonacci Num      | 653  - 2sum input as BST
+
 Linked list								|     String
 ----------------------------------------|-------------------------
 138  - Copy List with random pointer    |  76  - Minimum Window Substring 
@@ -38,3 +40,13 @@ Linked list								|     String
 Greedy
 1282 - group people given group size
 1007 - min Domino Rotation
+
+// substring 
+3   - Longest Substring Without Repeating Characters, 
+76  - Minimum Window Substring,
+340 - Longest substring with k distinct characters, 
+30  - Substring with Concatenation of All Words
+159 - Longest Substring with At Most Two Distinct Characters
+438 - Find All Anagrams in a String
+
+https://leetcode.com/problems/find-all-anagrams-in-a-string/discuss/92007/Sliding-Window-algorithm-template-to-solve-all-the-Leetcode-substring-search-problem
